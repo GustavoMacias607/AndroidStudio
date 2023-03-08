@@ -1,4 +1,4 @@
-package Tareas02
+package com.example.myapplication.Tareas02
 
 /**
  * Programa que obtenga la factorial de un número leído

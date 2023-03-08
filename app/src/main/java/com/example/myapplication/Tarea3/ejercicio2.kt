@@ -1,4 +1,4 @@
-package Tarea3
+package com.example.myapplication.Tarea3
 
 /**
  * Hacer un Script que pida 10 calificaciones y utilice el metodo average para mostrar el

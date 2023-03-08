@@ -1,4 +1,4 @@
-package Tareas02
+package com.example.myapplication.Tareas02
 /**
  * Programa que lea una serie de números y se detenga cuando el número leído sea un 0.
  */

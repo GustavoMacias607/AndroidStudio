@@ -1,4 +1,4 @@
-package TareaIntroduccionKotlin
+package com.example.myapplication.TareaIntroduccionKotlin
 /*
 Gustavo Adolfo Macias Muñan
 Ejercicios kotlin

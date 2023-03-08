@@ -1,4 +1,4 @@
-package Tareas02
+package com.example.myapplication.Tareas02
 
 /**
  * Realiza un programa que permita leer la edad de una persona y despliegue en
