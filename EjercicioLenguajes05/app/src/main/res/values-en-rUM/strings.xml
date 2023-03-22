@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Lenguajes05</string>
+    <string name="titulo_lenguaje">Programming Language</string>
+    <string name="Caracteristica_Lenguaje">Language feature</string>
+</resources>
