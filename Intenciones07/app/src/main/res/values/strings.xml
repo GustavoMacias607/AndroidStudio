@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Intenciones07</string>
+
+    <string name="btnText1">A PANTALLA</string>
+    <string name="btnText2">A PAGINA</string>
+    <string name="Titulo">Intenciones</string>
+    <string name="tituloVentada2">Teclado</string>
+</resources>
