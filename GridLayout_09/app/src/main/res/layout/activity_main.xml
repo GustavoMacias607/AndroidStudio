@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.gridlayout.widget.GridLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="30dp"
+        app:columnCount="4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCadena"
+        app:orientation="horizontal"
+        app:rowCount="4">
+
+        <TextView
+            android:id="@+id/txtnum7"
+            style="@style/MiCalculadora.boton"
+            android:text="7"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1" />
+        <TextView
+            android:id="@+id/txtnum8"
+            style="@style/MiCalculadora.boton"
+            android:text="8"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1" />
+        <TextView
+            android:id="@+id/txtnum9"
+            style="@style/MiCalculadora.boton"
+            android:text="9"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1" />
+        <TextView
+            android:id="@+id/txtClear"
+            style="@style/miCalculadora.boton.Operaciones"
+            android:text="C"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1" />
+
+        <TextView
+            android:id="@+id/txtnum4"
+            style="@style/MiCalculadora.boton"
+            android:text="4"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1" />
+        <TextView
+            android:id="@+id/txtnum5"
+            style="@style/MiCalculadora.boton"
+            android:text="5"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1" />
+        <TextView
+            android:id="@+id/txtnum6"
+            style="@style/MiCalculadora.boton"
+            android:text="6"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1" />
+        <TextView
+            android:id="@+id/txtSuma"
+            style="@style/miCalculadora.boton.Operaciones"
+            android:text="+"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1" />
+
+        <TextView
+            android:id="@+id/txtnum1"
+            style="@style/MiCalculadora.boton"
+            android:text="1"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1" />
+        <TextView
+            android:id="@+id/txtnum2"
+            style="@style/MiCalculadora.boton"
+            android:text="2"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1" />
+        <TextView
+            android:id="@+id/txtnum3"
+            style="@style/MiCalculadora.boton"
+            android:text="3"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1" />
+        <TextView
+            android:id="@+id/txtResta"
+            style="@style/miCalculadora.boton.Operaciones"
+            android:text="-"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1" />
+        <TextView
+            android:id="@+id/txtnum0"
+            style="@style/MiCalculadora.boton"
+            android:text="0"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1" />
+        <TextView
+            android:id="@+id/txtResultado"
+            style="@style/miCalculadora.boton.Operaciones"
+            android:text="="
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            app:layout_columnSpan="3"/>
+
+    </androidx.gridlayout.widget.GridLayout>
+
+    <TextView
+        android:id="@+id/txtCadena"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:text="0"
+        android:textAlignment="viewEnd"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
