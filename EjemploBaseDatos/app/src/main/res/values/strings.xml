@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">EjemploBaseDatos</string>
+    <string name="lblTitulo">Agregar Dato</string>
+    <string name="btnGuardar">Guardar</string>
+</resources>
