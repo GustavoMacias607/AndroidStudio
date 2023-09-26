@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">HappyPet</string>
+    <string name="txtLogin">LOGIN</string>
+    <string name="txtRegister">REGISTER</string>
+</resources>

@@ -41,7 +41,7 @@ class Editar : AppCompatActivity() {
         editor.putString("carrera", carrera)
         editor.putString("telefono", telefono)
         editor.commit()
-        Toast.makeText(this, "se grabo", Toast.LENGTH_SHORT).show()
+
 
         onClickPersona(nombre,carrera,telefono)
     }

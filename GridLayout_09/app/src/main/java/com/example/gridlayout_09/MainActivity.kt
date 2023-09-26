@@ -93,9 +93,7 @@ class MainActivity : AppCompatActivity() {
                         txtCadena.text = cantidad.toString()
                         Log.e("Boton", "valor resultado: ${cantidad}")
                         cadena = "0"
-
                     }
-
                 }
                 txtCadena.text = cantidad.toString()
             }else ->{// guarda el caracter escrito en la cadena
@@ -103,12 +101,6 @@ class MainActivity : AppCompatActivity() {
             txtCadena.text = cadena
             Log.e("Boton", "valor: ${cadena}")
             }
-
-
-
-
         }
-
-
     }
 }

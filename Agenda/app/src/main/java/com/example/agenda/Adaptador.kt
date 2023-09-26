@@ -17,6 +17,7 @@ class Adaptador(private var contexto: Context) :
         var txtApellido: TextView = item.findViewById(R.id.txtApellido)
         var txtEdad: TextView = item.findViewById(R.id.txtEdad)
     }
+
 // surve para especificar la vista
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderPersona {
        val layoutItem = LayoutInflater.from(parent.context).inflate(R.layout.item_view,parent,false)
@@ -29,13 +30,13 @@ class Adaptador(private var contexto: Context) :
 // llena los datos en cada repeticion
     override fun onBindViewHolder(holder: ViewHolderPersona, position: Int) {
         val persona = Provisional.listPersona[position]
-    val activity  = contexto as MainActivity
-    holder.txtNombre.text = persona.nombre
-    holder.txtApellido.text = persona.apellido
-    holder.txtEdad.text = persona.edad//.toString()
-    holder.itemView.setOnClickListener{
-activity.onClickPersona(persona)
-    }
+        val activity  = contexto as MainActivity
+        holder.txtNombre.text = persona.nombre
+        holder.txtApellido.text = persona.apellido
+        holder.txtEdad.text = persona.edad//.toString()
+        holder.itemView.setOnClickListener{
+         activity.onClickPersona(persona)
+        }
     }
 
 
