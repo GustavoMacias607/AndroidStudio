@@ -2,4 +2,7 @@
     <string name="app_name">VeterinariaHappyPet</string>
     <string name="txtLogin">LOGIN</string>
     <string name="txtRegister">REGISTER</string>
+    <string name="btnCrearCuenta">CREATE</string>
+    <string name="lblTitleCreateAccount">CREATE ACCOUNT</string>
+    <string name="lblLogin">MANAGE YOUR APPOINTMENTS</string>
 </resources>

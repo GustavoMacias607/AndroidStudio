@@ -5,16 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 
-class MainActivity : AppCompatActivity() {
+class Registrar : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_registrar)
     }
 
 
-    fun CrearCuenta(v: View){
-        val intent = Intent(this, Registrar::class.java)
-        startActivity(intent)
+    fun Regresar(v: View){
+       finish()
     }
-
 }
