@@ -54,7 +54,7 @@ class AgregarPaciente : AppCompatActivity() {
             val domicilio = edDomicilio.text.toString()
             val correo = edCorreo.text.toString()
             val u = RegPaciente(id, mascota, propietario, telefono, domicilio, correo)
-            if((edMascota.text).equals("") && (edPropietario.text).equals("")&& edTelefono.text.equals("")&& edDomicilio.text.equals("")&& edCorreo.text.equals("")){
+            if(mascota == "" || propietario == ""|| telefono == ""|| domicilio == ""|| correo == ""){
                 lblMsg.visibility = View.VISIBLE
                 lblMsg.text = "Campos Vacios"
                 handler.postDelayed({
