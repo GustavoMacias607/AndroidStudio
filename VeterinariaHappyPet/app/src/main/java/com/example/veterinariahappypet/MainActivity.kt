@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
-import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
@@ -30,11 +29,11 @@ class MainActivity : AppCompatActivity() {
         handler = Handler(Looper.getMainLooper())
         dao = daoUsuario(this)
 
+
         val preferencia = getSharedPreferences("Usuario", MODE_PRIVATE)
         val id = preferencia.getString("IdUsuario", "No se ha ingresado")
         if(id.toString() != ""){
             val intent = Intent(this, Pacientes::class.java)
-
             startActivity(intent)
         }
 

@@ -47,7 +47,7 @@ class Registrar : AppCompatActivity() {
             val usuario = edUser.text.toString()
             val password = edPass.text.toString()
             val u = Usuario(nombre, usuario, password)
-            if(!u.isNull){
+            if(!u.isNull && (edPass.text).equals("") && (edVeriPass.text).equals("")){
                 lblMsg.visibility = View.VISIBLE
                 lblMsg.text = "Campos Vacios"
                 handler.postDelayed({

@@ -1,8 +1,19 @@
 <resources>
     <string name="app_name">VeterinariaHappyPet</string>
     <string name="txtLogin">LOGIN</string>
-    <string name="txtRegister">REGISTER</string>
-    <string name="btnCrearCuenta">CREATE</string>
-    <string name="lblTitleCreateAccount">CREATE ACCOUNT</string>
-    <string name="lblLogin">MANAGE YOUR APPOINTMENTS</string>
+    <string name="txtRegister">REGISTRAR</string>
+    <string name="btnCrearCuenta">CREAR</string>
+    <string name="lblTitleCreateAccount">CREAR CUENTA</string>
+    <string name="lblLogin">ADMINISTRA TUS CITAS</string>
+    <string name="titleCreatePatient">CREAR PACIENTE</string>
+    <string name="edMascota">Mascota</string>
+    <string name="edProprietor">Propietario</string>
+    <string name="edPhoneNumber">Numero de Telefono</string>
+    <string name="edResidence">Domicilio</string>
+    <string name="edEmail">Correo</string>
+
+    <string name="btnRegresar">Regresar</string>
+    <string name="btnSave">Guardar</string>
+    <string name="edSearch">Buscar Propietario</string>
+    <string name="lblPacientes">Pacientes</string>
 </resources>
