@@ -2,20 +2,25 @@ package com.example.veterinariahappypet
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlin.properties.Delegates
+
 
 class Pacientes : AppCompatActivity() {
     lateinit var dao: daoUsuario
     lateinit var daoP: daoPaciente
     lateinit var lblSesion : TextView
     lateinit var rvPacientes: RecyclerView
+    lateinit var textVieww : TextView
+    lateinit var edBuscar: EditText
 
     lateinit var ux : Usuario
 
@@ -26,25 +31,45 @@ class Pacientes : AppCompatActivity() {
         rvPacientes = findViewById(R.id.rvPacientes)
         dao = daoUsuario(this)
         daoP = daoPaciente(this)
+        textVieww = findViewById(R.id.textView4)
+        edBuscar = findViewById(R.id.txtBuscar)
 
 
         val preferencia = getSharedPreferences("Usuario", MODE_PRIVATE)
         val id = preferencia.getString("IdUsuario", "No se ha ingresado")
         idd = Integer.parseInt(id)
         lblSesion = findViewById(R.id.lblSesion)
-        Toast.makeText(this, id, Toast.LENGTH_LONG).show();
-      // var pa : RegPaciente = daoP.getPacienteById(9)
-        //Toast.makeText(this, pa.idUsuario, Toast.LENGTH_LONG).show();
+
          ux = dao.getUsuarioById(Integer.parseInt(id))
-        Toast.makeText(this, ux.nombre, Toast.LENGTH_LONG).show();
         lblSesion.text = ux.nombre
+
+
     }
 
     override fun onResume() {
         super.onResume()
+        val valorthis = this
         val adaptador = PaAdaptador(this,idd)
         rvPacientes.adapter = adaptador
         rvPacientes.layoutManager = LinearLayoutManager(this)
+
+        edBuscar.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+                // No es necesario implementar este método, pero debes mantenerlo en blanco.
+
+            }
+
+            override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+                // Aquí actualizas el TextView con el texto actual del EditText.
+                val adaptador2 = PaAdaptador(valorthis, idd, charSequence.toString())
+                rvPacientes.adapter = adaptador2
+                rvPacientes.layoutManager = LinearLayoutManager(valorthis)
+            }
+
+            override fun afterTextChanged(editable: Editable) {
+                // No es necesario implementar este método, pero debes mantenerlo en blanco.
+            }
+        })
     }
 
 

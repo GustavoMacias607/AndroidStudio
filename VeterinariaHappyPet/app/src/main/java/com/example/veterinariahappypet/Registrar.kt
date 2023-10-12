@@ -68,7 +68,14 @@ class Registrar : AppCompatActivity() {
 
                 }, 2000)
                 }
-        }else{
+        }else if(edPass.length() < 7){
+            lblMsg.visibility = View.VISIBLE
+            lblMsg.text = "La contraseña debe ser de mas de 6 caracteres"
+            handler.postDelayed({
+                lblMsg.visibility = View.INVISIBLE
+
+            }, 2000)
+        } else{
             lblMsg.visibility = View.VISIBLE
             lblMsg.text = "Las Contraseñas No Coinciden"
             handler.postDelayed({

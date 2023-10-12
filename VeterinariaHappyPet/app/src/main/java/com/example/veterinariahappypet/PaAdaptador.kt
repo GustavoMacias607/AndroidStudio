@@ -8,24 +8,23 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 
-class PaAdaptador (private var contexto: Context, private var id:Int) :
+class PaAdaptador (private var contexto: Context, private var id:Int, private var cadena:String = "") :
     RecyclerView.Adapter<PaAdaptador.ViewHolderPaciente>(){
 
     private var lista: ArrayList<RegPaciente>
 
     init {
-
-
-
-
         // Inicializa la lista obteniendo los datos del daoPaciente
-        val dao = daoPaciente(contexto)
-        lista = dao.selectPacientes(id)
+        if(cadena != ""){
+            val dao = daoPaciente(contexto)
+            lista = dao.selectPacientes(id, cadena)
+
+        }else{
+            val dao = daoPaciente(contexto)
+            lista = dao.selectPacientes(id)
+        }
+
     }
-
-
-
-
     class ViewHolderPaciente(item: View):
         RecyclerView.ViewHolder(item) {
         var txNombre: TextView = item.findViewById(R.id.txNombre)
@@ -48,7 +47,7 @@ class PaAdaptador (private var contexto: Context, private var id:Int) :
         val activity  = contexto as Pacientes
         holder.txNombre.text = "Propietario: " +  paciente.propietario
         holder.txTelefono.text = "Telefono: " +  paciente.telefono
-        holder.txDomicilio.text = "Domicilio: " +  paciente.domicilio
+        holder.txDomicilio.text = "Mascota: " +  paciente.mascota
         /*holder.itemView.setOnClickListener{
             activity.onClickPaciente(paciente)
         }

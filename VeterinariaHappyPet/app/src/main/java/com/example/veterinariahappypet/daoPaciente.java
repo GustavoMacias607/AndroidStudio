@@ -73,6 +73,31 @@ public class daoPaciente {
         }
         return lista;
     }
+
+    public ArrayList<RegPaciente> selectPacientes(int idUser, String cadena){
+        ArrayList<RegPaciente> lista = new ArrayList<RegPaciente>();
+        lista.clear();
+        String consulta = "SELECT * FROM paciente WHERE idUsuario = ? and propietario like ?";
+        // Agregar "%" antes y después de la cadena para que funcione como un comodín
+        String cadenaConComodines = "%" + cadena + "%";
+        // Usar el método rawQuery con la consulta parametrizada
+        Cursor cr = sql.rawQuery(consulta, new String[]{String.valueOf(idUser), cadenaConComodines});
+        if(cr!= null&&cr.moveToFirst()){
+            do{
+                RegPaciente p = new RegPaciente();
+                p.setId(cr.getInt(0));
+                p.setIdUsuario(cr.getInt(1));
+                p.setMascota(cr.getString(2));
+                p.setPropietario(cr.getString(3));
+                p.setTelefono(cr.getString(4));
+                p.setDomicilio(cr.getString(5));
+                p.setCorreo(cr.getString(6));
+                lista.add(p);
+
+            }while (cr.moveToNext());
+        }
+        return lista;
+    }
 /*
     public int login(String u, String p){
         int a = 0;
