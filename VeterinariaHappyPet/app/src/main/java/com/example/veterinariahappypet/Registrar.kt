@@ -68,7 +68,7 @@ class Registrar : AppCompatActivity() {
 
                 }, 2000)
                 }
-        }else if(edPass.length() < 7){
+        }else if(edPass.length() < 6){
             lblMsg.visibility = View.VISIBLE
             lblMsg.text = "La contraseña debe ser de mas de 6 caracteres"
             handler.postDelayed({

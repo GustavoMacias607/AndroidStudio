@@ -49,14 +49,25 @@ class MainActivity : AppCompatActivity() {
     fun Entrar(v: View){
         var u = edUser.text.toString();
         var p = edPass.text.toString();
-        if(u == "" && p == ""){
+        if(u == ""  || p == ""){
 
-            lblMsg.visibility = View.VISIBLE
-            lblMsg.text = "Campos Vacios"
-            handler.postDelayed({
-                lblMsg.visibility = View.INVISIBLE
+            if(u == ""){
 
-            }, 2000)
+                lblMsg.visibility = View.VISIBLE
+                lblMsg.text = "Ingrese el Usuario"
+                handler.postDelayed({
+                    lblMsg.visibility = View.INVISIBLE
+
+                }, 2000)
+            }else if (p == ""){
+                lblMsg.visibility = View.VISIBLE
+                lblMsg.text = "Ingrese una Contraseña"
+                handler.postDelayed({
+                    lblMsg.visibility = View.INVISIBLE
+
+                }, 2000)
+            }
+
 
         }else if(dao.login(u,p)==1){
             var ux : Usuario = dao.getUsuario(u,p);

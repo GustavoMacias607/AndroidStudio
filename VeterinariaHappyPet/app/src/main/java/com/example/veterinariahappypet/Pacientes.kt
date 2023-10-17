@@ -8,7 +8,6 @@ import android.text.TextWatcher
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -39,8 +38,7 @@ class Pacientes : AppCompatActivity() {
         val id = preferencia.getString("IdUsuario", "No se ha ingresado")
         idd = Integer.parseInt(id)
         lblSesion = findViewById(R.id.lblSesion)
-
-         ux = dao.getUsuarioById(Integer.parseInt(id))
+        ux = dao.getUsuarioById(Integer.parseInt(id))
         lblSesion.text = ux.nombre
 
 
@@ -71,7 +69,20 @@ class Pacientes : AppCompatActivity() {
             }
         })
     }
+    fun onClickPaciente(paciente:RegPaciente){
 
+        val intent = Intent(this, CitasPaciente::class.java)
+        intent.putExtra("pId", (paciente.Id).toString())
+        intent.putExtra("pIdUsuario", (paciente.IdUsuario).toString())
+        intent.putExtra("pMascota", (paciente.Mascota).toString())
+        intent.putExtra("pPropietario", paciente.propietario)
+        intent.putExtra("pTelefono", paciente.telefono)
+        intent.putExtra("pCorreo", paciente.correo)
+        intent.putExtra("pDomicilio", paciente.domicilio)
+
+
+        startActivity(intent)
+    }
 
 
     fun CerrarSesion(v: View){
@@ -82,6 +93,7 @@ class Pacientes : AppCompatActivity() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }
+
 
     fun CrearPaciente(v: View){
         val intent = Intent(this, AgregarPaciente::class.java)

@@ -21,8 +21,9 @@ class AgregarPaciente : AppCompatActivity() {
     lateinit var lblMsg: TextView;
 
 
-    lateinit var dao: daoPaciente
+    lateinit var dao: daoPaciente;
     lateinit var handler: Handler;
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_agregar_paciente)
@@ -42,6 +43,7 @@ class AgregarPaciente : AppCompatActivity() {
         val intent = Intent(this, Pacientes::class.java)
         startActivity(intent)
     }
+
 
     fun CrearPaciente(v: View){
         val preferencia = getSharedPreferences("Usuario", MODE_PRIVATE)
