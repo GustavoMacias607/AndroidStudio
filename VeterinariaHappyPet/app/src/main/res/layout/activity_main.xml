@@ -68,7 +68,7 @@
         android:hint="Usuario"
         android:inputType="text"
         android:textColor="@color/white"
-        android:textColorHint="@color/material_dynamic_neutral40"
+        android:textColorHint="@color/hint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -85,7 +85,7 @@
         android:inputType="textPassword"
         android:scrollbarThumbHorizontal="@android:drawable/alert_light_frame"
         android:textColor="@color/white"
-        android:textColorHint="@color/material_dynamic_neutral40"
+        android:textColorHint="@color/hint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edUser" />
