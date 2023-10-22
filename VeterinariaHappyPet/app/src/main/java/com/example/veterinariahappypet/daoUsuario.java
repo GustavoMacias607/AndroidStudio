@@ -8,12 +8,14 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 
 public class daoUsuario {
+    //variables globales
     Context c;
     Usuario u;
     ArrayList<Usuario> lista;
     SQLiteDatabase sql;
     String bd= "BDUsuarios";
 
+    //consulta de creacion de tabla usuario
     String tabla ="Create table if not exists usuario(id integer primary key autoincrement, usuario text, pass text, nombre text)";
 
 
@@ -29,6 +31,7 @@ public class daoUsuario {
 
     }
 
+    //metodo para insertar un usuario
     public boolean insertUsuario(Usuario u){
         if(buscar(u.getUsuario()) == 0){
             ContentValues cv = new ContentValues();
@@ -40,6 +43,7 @@ public class daoUsuario {
             return false;
         }
     }
+    //metodo para buscar un usuario y comprobar si este ya existe
     public int buscar(String u){
         int x=0;
         lista = selectUsuarios();
@@ -50,6 +54,8 @@ public class daoUsuario {
         }
         return x;
     }
+
+    //metodo para consultar los usuarios
     public ArrayList<Usuario> selectUsuarios(){
         ArrayList<Usuario> lista = new ArrayList<Usuario>();
         lista.clear();
@@ -62,12 +68,12 @@ public class daoUsuario {
                 u.setPassword(cr.getString(2));
                 u.setNombre(cr.getString(3));
                 lista.add(u);
-
             }while (cr.moveToNext());
         }
         return lista;
     }
 
+    //metodo para iniciar sesion
     public int login(String u, String p){
         int a = 0;
         Cursor cr = sql.rawQuery("select * from usuario", null);
@@ -80,6 +86,8 @@ public class daoUsuario {
         }
         return a;
     }
+
+    //metodo para obtener un usuario
     public Usuario getUsuario(String u, String p){
             lista=selectUsuarios();
             for(Usuario us: lista){
@@ -90,6 +98,7 @@ public class daoUsuario {
             return null;
     }
 
+    //metodo para buscar un usuario por id
     public Usuario getUsuarioById(int id){
         lista=selectUsuarios();
         for(Usuario us: lista){
