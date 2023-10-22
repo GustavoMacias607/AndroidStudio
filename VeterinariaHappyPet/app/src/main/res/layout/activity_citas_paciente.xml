@@ -117,7 +117,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/enviarcorreodiseno"
-        android:onClick="Nou"
+        android:onClick="UpdatePaciente"
         android:text="Modificar Datos"
         android:textColor="@color/white"
         android:textSize="16sp"

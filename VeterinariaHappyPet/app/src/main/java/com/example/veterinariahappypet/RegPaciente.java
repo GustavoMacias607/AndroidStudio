@@ -9,7 +9,6 @@ public class RegPaciente {
     public RegPaciente() {
 
     }
-
     public RegPaciente(int idUsuario,String mascota, String propietario, String telefono, String domicilio, String correo) {
         IdUsuario = idUsuario;
         Mascota = mascota;
