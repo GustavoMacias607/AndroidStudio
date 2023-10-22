@@ -16,10 +16,8 @@ class CiAdaptador (private var contexto: Context, private var id:Int) :
 
     init {
         // Inicializa la lista obteniendo los datos del daoPaciente
-
             val dao = daoCita(contexto)
             lista = dao.selectCitas(id)
-
     }
 
     class ViewHolderCitas(item: View) :
@@ -29,8 +27,7 @@ class CiAdaptador (private var contexto: Context, private var id:Int) :
         var imFoto: ImageView = item.findViewById(R.id.imagenCitas)
 
     }
-
-    // surve para especificar la vista
+    // sirve para especificar la vista
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderCitas {
         val layoutItem =
             LayoutInflater.from(parent.context).inflate(R.layout.item_citas, parent, false)

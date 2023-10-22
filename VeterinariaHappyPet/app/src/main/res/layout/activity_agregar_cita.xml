@@ -2,11 +2,45 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    tools:context=".AgregarCita"
-    android:background="#202732">
+    android:background="#202732"
+    tools:context=".AgregarCita">
 
+
+    <EditText
+        android:id="@+id/txtSintomas"
+        android:layout_width="349dp"
+        android:layout_height="76dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Sintomas"
+        android:inputType="textMultiLine"
+        android:textColor="@color/white"
+        android:textColorHint="@color/hint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Calendario" />
+
+    <Button
+        android:id="@+id/btnEntrar5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/button_rounded"
+        android:onClick="CrearCita"
+        android:text="@string/btnSave"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblMsg3" />
 
     <TextView
         android:id="@+id/lblMsg3"
@@ -14,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
 
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/msg_error"
         android:cursorVisible="true"
@@ -34,7 +68,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/button_rounder_border"
         android:onClick="Regresar"
@@ -44,56 +78,6 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnEntrar5" />
-
-    <Button
-        android:id="@+id/btnEntrar5"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/button_rounded"
-        android:onClick="CrearCita"
-        android:text="@string/btnSave"
-        android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblMsg3" />
-
-    <EditText
-        android:id="@+id/txtSintomas"
-        android:layout_width="349dp"
-        android:layout_height="76dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="32dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="Sintomas"
-        android:inputType="textMultiLine"
-        android:textColor="@color/white"
-        android:textColorHint="@color/material_dynamic_neutral40"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dtFecha" />
-
-    <EditText
-        android:id="@+id/dtFecha"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="32dp"
-        android:ems="10"
-        android:hint="Fecha"
-        android:inputType="date"
-        android:textColor="@color/white"
-        android:textColorHint="@color/material_dynamic_neutral40"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPropietarioC" />
 
     <ImageView
         android:id="@+id/imageView5"
@@ -138,7 +122,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:text="Mascota*"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
@@ -181,7 +165,7 @@
         android:id="@+id/ImgFoto"
         android:layout_width="118dp"
         android:layout_height="100dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.943"
         app:layout_constraintStart_toStartOf="parent"
@@ -199,5 +183,15 @@
         app:layout_constraintHorizontal_bias="0.884"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ImgFoto" />
+
+    <CalendarView
+        android:id="@+id/Calendario"
+        android:layout_width="331dp"
+        android:layout_height="298dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPropietarioC" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
