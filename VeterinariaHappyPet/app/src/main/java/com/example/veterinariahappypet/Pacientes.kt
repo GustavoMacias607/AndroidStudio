@@ -14,63 +14,61 @@ import androidx.recyclerview.widget.RecyclerView
 
 
 class Pacientes : AppCompatActivity() {
+
+    //variables globales
     lateinit var dao: daoUsuario
     lateinit var daoP: daoPaciente
     lateinit var lblSesion : TextView
     lateinit var rvPacientes: RecyclerView
     lateinit var textVieww : TextView
     lateinit var edBuscar: EditText
-
     lateinit var ux : Usuario
-
     var idd:Int = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pacientes)
+
+        //asignacion de variables globales
         rvPacientes = findViewById(R.id.rvPacientes)
         dao = daoUsuario(this)
         daoP = daoPaciente(this)
         textVieww = findViewById(R.id.textView4)
         edBuscar = findViewById(R.id.txtBuscar)
-
-
         val preferencia = getSharedPreferences("Usuario", MODE_PRIVATE)
         val id = preferencia.getString("IdUsuario", "No se ha ingresado")
         idd = Integer.parseInt(id)
         lblSesion = findViewById(R.id.lblSesion)
         ux = dao.getUsuarioById(Integer.parseInt(id))
         lblSesion.text = ux.nombre
-
-
     }
 
+    //metodo que llena el RecyclerView con la lista de pacientes
     override fun onResume() {
         super.onResume()
         val valorthis = this
         val adaptador = PaAdaptador(this,idd)
         rvPacientes.adapter = adaptador
         rvPacientes.layoutManager = LinearLayoutManager(this)
-
-        edBuscar.addTextChangedListener(object : TextWatcher {
+        edBuscar.addTextChangedListener(object : TextWatcher { // evento que detecta si hubo un cambio en el txt de buscar
             override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-                // No es necesario implementar este método, pero debes mantenerlo en blanco.
 
             }
-
             override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-                // Aquí actualizas el TextView con el texto actual del EditText.
+                // actualiza la lista buscando el propietario
                 val adaptador2 = PaAdaptador(valorthis, idd, charSequence.toString())
                 rvPacientes.adapter = adaptador2
                 rvPacientes.layoutManager = LinearLayoutManager(valorthis)
             }
 
             override fun afterTextChanged(editable: Editable) {
-                // No es necesario implementar este método, pero debes mantenerlo en blanco.
+
             }
         })
     }
-    fun onClickPaciente(paciente:RegPaciente){
 
+    //metodo que se ejecuta al darle clic a un paciente en el RecyclerView
+    fun onClickPaciente(paciente:RegPaciente){
         val intent = Intent(this, CitasPaciente::class.java)
         intent.putExtra("pId", (paciente.Id).toString())
         intent.putExtra("pIdUsuario", (paciente.IdUsuario).toString())
@@ -79,12 +77,11 @@ class Pacientes : AppCompatActivity() {
         intent.putExtra("pTelefono", paciente.telefono)
         intent.putExtra("pCorreo", paciente.correo)
         intent.putExtra("pDomicilio", paciente.domicilio)
-
-
         startActivity(intent)
     }
 
 
+    //metodo que se ejecuta al darle al boton de cerrar sesion, este cierra la sesion y direcciona al login
     fun CerrarSesion(v: View){
         val preferencias = getSharedPreferences("Usuario", Context.MODE_PRIVATE)
         val editor = preferencias.edit()
@@ -95,6 +92,7 @@ class Pacientes : AppCompatActivity() {
     }
 
 
+    //metodo que se ejecuta al darle clic a crear paciente direccionando a la pantalla de crear paciente
     fun CrearPaciente(v: View){
         val intent = Intent(this, AgregarPaciente::class.java)
         startActivity(intent)
