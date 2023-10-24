@@ -162,7 +162,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <ImageView
-        android:id="@+id/ImgFoto"
+        android:id="@+id/fotito"
         android:layout_width="118dp"
         android:layout_height="100dp"
         android:layout_marginTop="40dp"
@@ -182,7 +182,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.884"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ImgFoto" />
+        app:layout_constraintTop_toBottomOf="@+id/fotito" />
 
     <CalendarView
         android:id="@+id/Calendario"

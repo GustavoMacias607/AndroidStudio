@@ -46,11 +46,11 @@ class CiAdaptador (private var contexto: Context, private var id:Int) :
         holder.nCita.text = "No. Cita: " + (position+1);
         holder.imFoto.setImageBitmap(citas.foto)
 
-        /*
+
         holder.itemView.setOnClickListener {
-            activity.onClickPaciente(paciente)
+            activity.onClickCita(citas)
         }
 
-         */
+
     }
 }

@@ -62,4 +62,5 @@
     <string name="lblCitas">CITAS</string>
     <string name="edTelefono">TELEFONO</string>
     <string name="lblCrearCita">CREAR CITA</string>
+    <string name="lblCit">Cita</string>
 </resources>

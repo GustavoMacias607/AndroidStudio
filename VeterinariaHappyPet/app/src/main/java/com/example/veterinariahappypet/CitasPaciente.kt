@@ -70,6 +70,14 @@ class CitasPaciente : AppCompatActivity() {
         startActivity(intent)
     }
 
+    //metodo que se ejecuta al darle clic a una cita en el RecyclerView
+    fun onClickCita(cita:Citas){
+        val intent = Intent(this, DetallesCita::class.java)
+        intent.putExtra("idCita", (cita.id).toString())
+        intent.putExtra("idPaciente", (cita.idPaciente).toString())
+
+        startActivity(intent)
+    }
     //regresa a la pantalla anterior de pacientes
     fun Regresar(v: View){
         val intent = Intent(this, Pacientes::class.java)

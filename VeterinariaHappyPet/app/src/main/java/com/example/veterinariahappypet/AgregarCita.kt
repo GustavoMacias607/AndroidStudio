@@ -18,12 +18,6 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
-import java.time.format.DateTimeParseException
-import java.util.Calendar
-import java.util.Date
-import java.util.regex.Pattern
 
 
 class AgregarCita : AppCompatActivity() {
@@ -49,7 +43,7 @@ class AgregarCita : AppCompatActivity() {
 
         //asignacion de variables globales
         calenda = findViewById(R.id.Calendario);
-        Imagencita = findViewById(R.id.ImgFoto)
+        Imagencita = findViewById(R.id.fotito)
         btnFoto = findViewById(R.id.btnFoto)
         edMascota = findViewById(R.id.txtMascotaC);
         edPropietario = findViewById(R.id.txtPropietarioC);
