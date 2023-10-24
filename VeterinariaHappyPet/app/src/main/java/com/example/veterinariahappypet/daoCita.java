@@ -46,6 +46,19 @@ public class daoCita {
 
     }
 
+    public boolean updateCita(Citas p,String id){
+        ContentValues cv = new ContentValues();
+        cv.put("idPaciente", p.getIdPaciente());
+        cv.put("fecha", p.getFecha());
+        cv.put("sintomas", p.getSintomas());
+        // Convertir Bitmap a byte array
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        p.getFoto().compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte[] byteArray = stream.toByteArray();
+        cv.put("foto", byteArray);
+        return (sql.update("citas", cv, "id = ?", new String[]{id}) > 0);
+    }
+
     //metodo para consultar las citas
     public ArrayList<Citas> selectCitas(int idPaciente){
         ArrayList<Citas> lista = new ArrayList<Citas>();

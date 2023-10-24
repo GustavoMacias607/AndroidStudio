@@ -1,5 +1,6 @@
 package com.example.veterinariahappypet
 
+import android.content.Intent
 import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -21,6 +22,7 @@ class DetallesCita : AppCompatActivity() {
     lateinit var daoP: daoPaciente
     var idPac = ""
     var idCita = ""
+    var idUser = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detalles_cita)
@@ -36,13 +38,11 @@ class DetallesCita : AppCompatActivity() {
         idCita = intent.getStringExtra("idCita").toString()
         idPac = intent.getStringExtra("idPaciente").toString()
         val preferencia = getSharedPreferences("Usuario", MODE_PRIVATE)
-        val idUser = preferencia.getString("IdUsuario", "No se ha ingresado")
+         idUser = preferencia.getString("IdUsuario", "No se ha ingresado").toString()
 
         //buscamos la cita
-
         c = dao.getCitaById(Integer.parseInt(idCita),Integer.parseInt(idPac))
         p = daoP.getPacienteById(Integer.parseInt(idPac),Integer.parseInt(idUser))
-        Toast.makeText(this, p.mascota +" " +p.propietario + " " + c.fecha + " " + c.sintomas + " " + c.foto , Toast.LENGTH_LONG).show();
 
         //asignamos valores
         txtMascota.text = p.mascota;
@@ -58,6 +58,16 @@ class DetallesCita : AppCompatActivity() {
     }
 
     fun regresar(v: View){
-        finish()
+        val intent = Intent(this, CitasPaciente::class.java)
+        intent.putExtra("pIdUsuario", (idUser))
+        intent.putExtra("pId", (idPac))
+        startActivity(intent)
+    }
+
+    fun modificar(v:View){
+        val intent = Intent(this, ModificarCita::class.java)
+        intent.putExtra("idCita", (idCita))
+        intent.putExtra("idPac", (idPac))
+        startActivity(intent)
     }
 }
