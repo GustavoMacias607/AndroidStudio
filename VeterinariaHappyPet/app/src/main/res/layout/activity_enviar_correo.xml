@@ -2,14 +2,31 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#202732"
-    tools:context=".AgregarCita">
+    tools:context=".EnviarCorreo"
+    android:background="#202732">
 
 
     <EditText
         android:id="@+id/edContenido"
+        android:layout_width="0dp"
+        android:layout_height="194dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Ingresa el contenido del mensaje"
+        android:inputType="textMultiLine"
+        android:textColor="@color/white"
+        android:textColorHint="@color/hint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+    <EditText
+        android:id="@+id/edAsunto"
         android:layout_width="349dp"
         android:layout_height="76dp"
         android:layout_marginStart="32dp"
@@ -17,29 +34,29 @@
         android:layout_marginEnd="32dp"
         android:ems="10"
         android:gravity="start|top"
-        android:hint="Sintomas"
+        android:hint="Motivo del mensaje"
         android:inputType="textMultiLine"
         android:textColor="@color/white"
         android:textColorHint="@color/hint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Calendario" />
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <Button
         android:id="@+id/btnEntrar5"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="154dp"
+        android:layout_height="46dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="32dp"
-        android:background="@drawable/button_rounded"
-        android:onClick="CrearCita"
-        android:text="@string/btnSave"
+        android:background="@drawable/enviarcorreodiseno"
+        android:onClick="enviarCorreo"
+        android:text="Enviar"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.103"
+        app:layout_constraintStart_toEndOf="@+id/btnRegistrar2"
         app:layout_constraintTop_toBottomOf="@+id/lblMsg3" />
 
     <TextView
@@ -65,19 +82,18 @@
 
     <Button
         android:id="@+id/btnRegistrar2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="154dp"
+        android:layout_height="46dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginTop="48dp"
         android:background="@drawable/button_rounder_border"
         android:onClick="Regresar"
         android:text="@string/btnRegresar"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnEntrar5" />
+        app:layout_constraintTop_toBottomOf="@+id/lblMsg3" />
 
     <ImageView
         android:id="@+id/imageView5"
@@ -88,19 +104,17 @@
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/user_48px" />
+        app:srcCompat="@drawable/email" />
 
     <TextView
         android:id="@+id/txtCorre"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="40dp"
-        android:text="Gustavo Adolfo Macias Muñan"
+        android:text="gustavo@gmail.com"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/btnFoto"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
@@ -108,9 +122,9 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
-        android:text="Propietario*"
+        android:text="Correo*"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
@@ -118,12 +132,38 @@
         app:layout_constraintTop_toBottomOf="@+id/txtPropi" />
 
     <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:text="Contenido*"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edAsunto" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:text="Asunto*"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCorre" />
+
+    <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
-        android:text="Mascota*"
+        android:text="Para*"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
@@ -136,62 +176,27 @@
         android:id="@+id/textView11"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="80dp"
-        android:text="@string/lblCrearCita"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="64dp"
+        android:text="@string/lblCorreo"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtPropi"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:text="Panchita"
+        android:text="Gustavo Adolfo Macias Muñan"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/txtPropietario"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
-
-    <ImageView
-        android:id="@+id/fotito"
-        android:layout_width="118dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.943"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <Button
-        android:id="@+id/btnFoto"
-        android:layout_width="72dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="8dp"
-        android:onClick="tomar"
-        android:text="Foto"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.884"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fotito" />
-
-    <CalendarView
-        android:id="@+id/Calendario"
-        android:layout_width="331dp"
-        android:layout_height="298dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCorre" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

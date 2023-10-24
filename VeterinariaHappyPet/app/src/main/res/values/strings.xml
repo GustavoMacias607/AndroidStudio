@@ -64,4 +64,6 @@
     <string name="lblCrearCita">CREAR CITA</string>
     <string name="lblCit">Cita</string>
     <string name="lblModificarCita">Modificar Cita</string>
+    <string name="lblCorreo">Enviar Correo</string>
+    <string name="UpdatePaciente">Modificar Paciente</string>
 </resources>

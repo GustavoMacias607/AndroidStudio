@@ -4,21 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Pacientes"
-    android:background="#202732">
+    android:background="#202732"
+    tools:context=".Pacientes">
+
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_width="157dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="30dp"
         android:text="@string/lblPacientes"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.181"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -46,7 +47,7 @@
         android:layout_height="56dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:background="@drawable/button_rounded"
+        android:background="@drawable/button_rounder_border"
         android:onClick="CrearPaciente"
         android:text="+"
         android:textColor="@color/white"
@@ -64,24 +65,10 @@
         android:layout_height="120dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.137"
+        app:layout_constraintHorizontal_bias="0.054"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="175dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/button_rounded"
-        android:onClick="CerrarSesion"
-        android:text="Cerrar Sesion"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.169"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rvPacientes" />
+        app:srcCompat="@drawable/logovtwo" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPacientes"
@@ -124,6 +111,48 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:srcCompat="@drawable/search_64px" />
+
+    <FrameLayout
+        android:id="@+id/fLFondo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#80E4D1D1"
+        android:onClick="conf"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/btnConf"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/borderconf"
+        android:onClick="conf"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/del" />
+
+    <Button
+        android:id="@+id/btnCerrarSesion"
+        android:layout_width="149dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/cerrarsesion"
+        android:onClick="CerrarSesion"
+        android:text="Cerrar Sesion"
+        android:textColor="@color/white"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnConf" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

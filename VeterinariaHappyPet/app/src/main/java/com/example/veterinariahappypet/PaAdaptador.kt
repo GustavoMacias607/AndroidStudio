@@ -10,9 +10,11 @@ import androidx.recyclerview.widget.RecyclerView
 class PaAdaptador (private var contexto: Context, private var id:Int, private var cadena:String = "") :
     RecyclerView.Adapter<PaAdaptador.ViewHolderPaciente>() {
 
+
     private var lista: ArrayList<RegPaciente>
 
     init {
+
         // Inicializa la lista obteniendo los datos del daoPaciente
         if (cadena != "") {
             val dao = daoPaciente(contexto)

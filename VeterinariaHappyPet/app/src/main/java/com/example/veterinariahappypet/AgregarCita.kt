@@ -1,6 +1,7 @@
 package com.example.veterinariahappypet
 
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
@@ -33,6 +34,9 @@ class AgregarCita : AppCompatActivity() {
     lateinit var dao: daoCita;
     lateinit var handler: Handler;
     lateinit var calenda: CalendarView;
+    lateinit var p : RegPaciente
+    lateinit var daoP: daoPaciente
+
     var fecha = ""
     var idString = ""
     var idUser = ""
@@ -45,17 +49,21 @@ class AgregarCita : AppCompatActivity() {
         calenda = findViewById(R.id.Calendario);
         Imagencita = findViewById(R.id.fotito)
         btnFoto = findViewById(R.id.btnFoto)
-        edMascota = findViewById(R.id.txtMascotaC);
-        edPropietario = findViewById(R.id.txtPropietarioC);
-        edSintomas = findViewById(R.id.txtSintomas);
+        edMascota = findViewById(R.id.txtPropi);
+        edPropietario = findViewById(R.id.txtCorre);
+        edSintomas = findViewById(R.id.edContenido);
         lblMsg = findViewById(R.id.lblMsg3);
         handler = Handler(Looper.getMainLooper())
         dao = daoCita(this)
+        daoP = daoPaciente(this)
+
 
         //obtener los getString de la clase Citas paciente
         idString = intent.getStringExtra("idPac").toString()
         idUser = intent.getStringExtra("pIdUsuario").toString()
-
+        p = daoP.getPacienteById(Integer.parseInt(idString),Integer.parseInt(idUser))
+        edMascota.text = p.mascota
+        edPropietario.text = p.propietario
         //evento al boton que toma la foto
         btnFoto.setOnClickListener{
             startForResult.launch(Intent(MediaStore.ACTION_IMAGE_CAPTURE))
@@ -72,6 +80,7 @@ class AgregarCita : AppCompatActivity() {
     }
 
     //Metodo para crear una cita
+    @SuppressLint("SuspiciousIndentation")
     fun CrearCita(v: View) {
         val idString = intent.getStringExtra("idPac") //obtener el id paciente
         val id = idString?.toIntOrNull() ?: 0

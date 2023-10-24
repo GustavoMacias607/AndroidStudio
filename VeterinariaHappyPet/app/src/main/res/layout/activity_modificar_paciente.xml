@@ -16,7 +16,7 @@
         app:layout_constraintHorizontal_bias="0.017"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/user_48px" />
+        app:srcCompat="@drawable/update" />
 
     <EditText
         android:id="@+id/edTelefono"
@@ -118,7 +118,7 @@
         android:layout_marginEnd="32dp"
         android:background="@drawable/button_rounded"
         android:onClick="ModificarPaci"
-        android:text="@string/btnSave"
+        android:text="Modificar"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -147,7 +147,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="30dp"
-        android:text="@string/titleCreatePatient"
+        android:text="@string/UpdatePaciente"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="34sp"

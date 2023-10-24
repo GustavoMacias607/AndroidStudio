@@ -6,7 +6,11 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.view.WindowManager.BadTokenException
+import android.widget.Button
 import android.widget.EditText
+import android.widget.FrameLayout
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,8 +26,13 @@ class Pacientes : AppCompatActivity() {
     lateinit var rvPacientes: RecyclerView
     lateinit var textVieww : TextView
     lateinit var edBuscar: EditText
+    lateinit var flFondo : FrameLayout
     lateinit var ux : Usuario
+
+    lateinit var btnConf : ImageView
+    lateinit var btnCerrarSesion : Button
     var idd:Int = 0
+    var desa = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,12 +44,17 @@ class Pacientes : AppCompatActivity() {
         daoP = daoPaciente(this)
         textVieww = findViewById(R.id.textView4)
         edBuscar = findViewById(R.id.txtBuscar)
+        flFondo = findViewById(R.id.fLFondo)
+
+        btnConf = findViewById(R.id.btnConf)
+        btnCerrarSesion = findViewById(R.id.btnCerrarSesion)
         val preferencia = getSharedPreferences("Usuario", MODE_PRIVATE)
-        val id = preferencia.getString("IdUsuario", "No se ha ingresado")
+        val id = preferencia.getString("IdUsuario", "")
         idd = Integer.parseInt(id)
         lblSesion = findViewById(R.id.lblSesion)
         ux = dao.getUsuarioById(Integer.parseInt(id))
         lblSesion.text = ux.nombre
+        desa = false
     }
 
     //metodo que llena el RecyclerView con la lista de pacientes
@@ -96,5 +110,23 @@ class Pacientes : AppCompatActivity() {
     fun CrearPaciente(v: View){
         val intent = Intent(this, AgregarPaciente::class.java)
         startActivity(intent)
+    }
+
+    //Metodo para configuracion
+    fun conf(v:View){
+        if (desa) {
+
+            btnCerrarSesion.visibility = View.INVISIBLE
+            flFondo.visibility = View.INVISIBLE
+            btnConf.setImageResource(R.drawable.del)
+            desa = false
+
+        } else {
+
+            btnCerrarSesion.visibility = View.VISIBLE
+            flFondo.visibility = View.VISIBLE
+            btnConf.setImageResource(R.drawable.deta)
+            desa = true
+        }
     }
 }

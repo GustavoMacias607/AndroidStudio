@@ -1,6 +1,7 @@
 package com.example.veterinariahappypet
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -84,8 +85,11 @@ class CitasPaciente : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun Nou(v: View){
-        Toast.makeText(this,"Aun no disponible", Toast.LENGTH_LONG).show();
+    fun correo(v: View){
+        val intent = Intent(this, EnviarCorreo::class.java)
+        intent.putExtra("idPaciente", (idPac))
+
+        startActivity(intent)
     }
 
 
@@ -96,4 +100,5 @@ class CitasPaciente : AppCompatActivity() {
         intent.putExtra("pIdUsuario", (idUser))
         startActivity(intent)
     }
+
 }

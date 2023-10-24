@@ -45,7 +45,7 @@ class AgregarPaciente : AppCompatActivity() {
     //Metodo para crear un paciente
     fun CrearPaciente(v: View){
         val preferencia = getSharedPreferences("Usuario", MODE_PRIVATE)
-        val idString = preferencia.getString("IdUsuario", "No se ha ingresado") //obtener el id del usuario
+        val idString = preferencia.getString("IdUsuario", "") //obtener el id del usuario
         val id = idString?.toIntOrNull() ?: 0
         // llenado de variables
         val mascota = edMascota.text.toString()

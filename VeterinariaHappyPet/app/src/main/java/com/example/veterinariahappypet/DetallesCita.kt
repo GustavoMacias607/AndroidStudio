@@ -1,13 +1,11 @@
 package com.example.veterinariahappypet
 
 import android.content.Intent
-import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 
 class DetallesCita : AppCompatActivity() {
     //variables globales
@@ -28,8 +26,8 @@ class DetallesCita : AppCompatActivity() {
         setContentView(R.layout.activity_detalles_cita)
 
         //asignacion de variables globales
-        txtMascota = findViewById(R.id.txtMascotaC)
-        txtPropietario = findViewById(R.id.txtPropietarioC)
+        txtMascota = findViewById(R.id.txtPropi)
+        txtPropietario = findViewById(R.id.txtCorre)
         txtFecha = findViewById(R.id.dtFechaC)
         txtSintomas = findViewById(R.id.txtSintomasC)
         foto = findViewById(R.id.fotito)
@@ -38,7 +36,7 @@ class DetallesCita : AppCompatActivity() {
         idCita = intent.getStringExtra("idCita").toString()
         idPac = intent.getStringExtra("idPaciente").toString()
         val preferencia = getSharedPreferences("Usuario", MODE_PRIVATE)
-         idUser = preferencia.getString("IdUsuario", "No se ha ingresado").toString()
+         idUser = preferencia.getString("IdUsuario", "").toString()
 
         //buscamos la cita
         c = dao.getCitaById(Integer.parseInt(idCita),Integer.parseInt(idPac))

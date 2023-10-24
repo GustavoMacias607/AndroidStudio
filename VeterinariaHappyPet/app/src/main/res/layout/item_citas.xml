@@ -6,6 +6,7 @@
     android:layout_height="wrap_content">
 
     <FrameLayout
+        android:id="@+id/frameLayout"
         android:layout_width="405dp"
         android:layout_height="88dp"
         android:background="@drawable/borderlistas"
@@ -42,4 +43,5 @@
             tools:srcCompat="@tools:sample/avatars" />
 
     </FrameLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

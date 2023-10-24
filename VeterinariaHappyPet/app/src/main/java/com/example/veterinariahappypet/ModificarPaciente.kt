@@ -58,7 +58,7 @@ class ModificarPaciente : AppCompatActivity() {
     }
     fun ModificarPaci(v: View){
         val preferencia = getSharedPreferences("Usuario", MODE_PRIVATE)
-        val idString = preferencia.getString("IdUsuario", "No se ha ingresado")
+        val idString = preferencia.getString("IdUsuario", "")
         val id = idString?.toIntOrNull() ?: 0
         // llenado de variables
         val mascota = edMascota.text.toString()

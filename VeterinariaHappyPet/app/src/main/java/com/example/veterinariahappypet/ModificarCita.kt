@@ -11,7 +11,6 @@ import android.provider.MediaStore
 import android.view.View
 import android.widget.Button
 import android.widget.CalendarView
-import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -50,9 +49,9 @@ class ModificarCita : AppCompatActivity() {
         calenda = findViewById(R.id.Calendario);
         Imagencita = findViewById(R.id.fotito)
         btnFoto = findViewById(R.id.btnFoto)
-        edMascota = findViewById(R.id.txtMascotaC);
-        edPropietario = findViewById(R.id.txtPropietarioC);
-        edSintomas = findViewById(R.id.txtSintomas);
+        edMascota = findViewById(R.id.txtPropi);
+        edPropietario = findViewById(R.id.txtCorre);
+        edSintomas = findViewById(R.id.edContenido);
         lblMsg = findViewById(R.id.lblMsg3);
         handler = Handler(Looper.getMainLooper())
         dao = daoCita(this)
@@ -62,7 +61,7 @@ class ModificarCita : AppCompatActivity() {
         idCita = intent.getStringExtra("idCita").toString()
         idPaci = intent.getStringExtra("idPac").toString()
         val preferencia = getSharedPreferences("Usuario", MODE_PRIVATE)
-        val idUser = preferencia.getString("IdUsuario", "No se ha ingresado")
+        val idUser = preferencia.getString("IdUsuario", "")
 
         c = dao.getCitaById(Integer.parseInt(idCita),Integer.parseInt(idPaci))
         p = daoP.getPacienteById(Integer.parseInt(idPaci),Integer.parseInt(idUser))

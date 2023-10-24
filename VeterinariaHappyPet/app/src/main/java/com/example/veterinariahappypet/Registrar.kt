@@ -60,7 +60,7 @@ class Registrar : AppCompatActivity() {
                Toast.makeText(this,"Usuario Registrado Correctamente", Toast.LENGTH_LONG).show();
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent);
-                finish();
+
             }else { //comprueba que el usuario no exista
                 lblMsg.visibility = View.VISIBLE
                 lblMsg.text = "Usuario ya Registrado"
