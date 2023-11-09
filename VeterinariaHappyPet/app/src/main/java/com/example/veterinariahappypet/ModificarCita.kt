@@ -18,6 +18,7 @@ import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import java.text.SimpleDateFormat
 import java.util.Calendar
+import java.util.Date
 import java.util.Locale
 
 class ModificarCita : AppCompatActivity() {
@@ -108,37 +109,84 @@ class ModificarCita : AppCompatActivity() {
 
         val id = idPaci?.toIntOrNull() ?: 0
         val sintomas = edSintomas.text.toString()
-        if (sintomas != "") {//validacion para que el campo sintomas tengo algo
-            if (imageBitmap != null) {  //validacion de que se haya tomado una foto
-                //Creando objeto de la clase y condiciones
-                val u = Citas(id, fecha, sintomas, imageBitmap)
-                if (dao.updateCita(u,idCita)) {
-                    //si se inserto correctamente direcciona a la pagina de citasPaciente
-                    Toast.makeText(this, "Cita Modificada Correctamente", Toast.LENGTH_LONG).show();
-                    val intent = Intent(this, DetallesCita::class.java)
-                    intent.putExtra("idCita", (idCita))
-                    intent.putExtra("idPaciente", (idPaci))
 
-                    startActivity(intent)
+        val formato = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        val fechaObjeto = formato.parse(fecha)
+        val fechaActual = Date()
+
+
+        val formato2 = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        val fechaObjeto2 = formato2.parse(fecha)
+        val fechaActual2 = Calendar.getInstance().time
+
+        if (fechaObjeto.after(fechaActual)) {
+            if (sintomas != "") {//validacion para que el campo sintomas tengo algo
+                if (imageBitmap != null) {  //validacion de que se haya tomado una foto
+                    //Creando objeto de la clase y condiciones
+                    val u = Citas(id, fecha, sintomas, imageBitmap)
+                    if (dao.updateCita(u,idCita)) {
+                        //si se inserto correctamente direcciona a la pagina de citasPaciente
+                        Toast.makeText(this, "Cita Modificada Correctamente", Toast.LENGTH_LONG).show();
+                        val intent = Intent(this, DetallesCita::class.java)
+                        intent.putExtra("idCita", (idCita))
+                        intent.putExtra("idPaciente", (idPaci))
+
+                        startActivity(intent)
+                    }
+                } else {
+                    lblMsg.visibility = View.VISIBLE
+                    lblMsg.text = "Favor de tomar una Foto"
+                    handler.postDelayed({
+                        lblMsg.visibility = View.INVISIBLE
+                        // Hacer el TextView invisible después de 2 segundos
+                    }, 2000)
                 }
             } else {
                 lblMsg.visibility = View.VISIBLE
-                lblMsg.text = "Favor de tomar una Foto"
+                lblMsg.text = "Campo Sintomas Vacio"
                 handler.postDelayed({
                     lblMsg.visibility = View.INVISIBLE
                     // Hacer el TextView invisible después de 2 segundos
                 }, 2000)
             }
-        } else {
-            lblMsg.visibility = View.VISIBLE
-            lblMsg.text = "Campo Sintomas Vacio"
-            handler.postDelayed({
-                lblMsg.visibility = View.INVISIBLE
-                // Hacer el TextView invisible después de 2 segundos
-            }, 2000)
-        }
+        } else if (formato2.format(fechaObjeto2) == formato2.format(fechaActual2)) {
+            if (sintomas != "") {//validacion para que el campo sintomas tengo algo
+                if (imageBitmap != null) {  //validacion de que se haya tomado una foto
+                    //Creando objeto de la clase y condiciones
+                    val u = Citas(id, fecha, sintomas, imageBitmap)
+                    if (dao.updateCita(u,idCita)) {
+                        //si se inserto correctamente direcciona a la pagina de citasPaciente
+                        Toast.makeText(this, "Cita Modificada Correctamente", Toast.LENGTH_LONG).show();
+                        val intent = Intent(this, DetallesCita::class.java)
+                        intent.putExtra("idCita", (idCita))
+                        intent.putExtra("idPaciente", (idPaci))
 
-
+                        startActivity(intent)
+                    }
+                } else {
+                    lblMsg.visibility = View.VISIBLE
+                    lblMsg.text = "Favor de tomar una Foto"
+                    handler.postDelayed({
+                        lblMsg.visibility = View.INVISIBLE
+                        // Hacer el TextView invisible después de 2 segundos
+                    }, 2000)
+                }
+            } else {
+                lblMsg.visibility = View.VISIBLE
+                lblMsg.text = "Campo Sintomas Vacio"
+                handler.postDelayed({
+                    lblMsg.visibility = View.INVISIBLE
+                    // Hacer el TextView invisible después de 2 segundos
+                }, 2000)
+            }
+        }else if(fechaObjeto.before(fechaActual)) {
+                lblMsg.visibility = View.VISIBLE
+                lblMsg.text = "La fecha ya ha pasado"
+                handler.postDelayed({
+                    lblMsg.visibility = View.INVISIBLE
+                    // Hacer el TextView invisible después de 2 segundos
+                }, 2000)
+            }
     }
 
     //guarda la imagen en la variable imageBitmap y asigna la foto al imagenview

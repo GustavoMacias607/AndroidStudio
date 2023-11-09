@@ -84,7 +84,7 @@ class MainActivity : AppCompatActivity() {
 
         }else if(dao.login(u,p)==0){// verifica si el usuario existe
             lblMsg.visibility = View.VISIBLE
-            lblMsg.text = "El Usuaio No Existe"
+            lblMsg.text = "El Usuario No Existe"
             handler.postDelayed({
                 lblMsg.visibility = View.INVISIBLE
             }, 2000)

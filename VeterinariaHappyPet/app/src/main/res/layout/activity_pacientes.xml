@@ -6,7 +6,23 @@
     android:layout_height="match_parent"
     android:background="#202732"
     tools:context=".Pacientes">
-
+    <Button
+        android:id="@+id/btnEntrar2"
+        android:layout_width="76dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/button_rounder_border"
+        android:onClick="CrearPaciente"
+        android:text="+"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.937"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rvPacientes"
+        app:layout_constraintVertical_bias="0.522" />
 
     <TextView
         android:id="@+id/textView4"
@@ -41,23 +57,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-    <Button
-        android:id="@+id/btnEntrar2"
-        android:layout_width="76dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/button_rounder_border"
-        android:onClick="CrearPaciente"
-        android:text="+"
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.937"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rvPacientes"
-        app:layout_constraintVertical_bias="0.522" />
+
 
     <ImageView
         android:id="@+id/imageView"
